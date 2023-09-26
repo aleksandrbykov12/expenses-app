@@ -43,6 +43,8 @@ addExpenseBtnNode.addEventListener('click', addExpenseBtnHandler);
 
 changeLimitBtnNode.addEventListener('click', changeLimit);
 
+resetExpenseBtnNode.addEventListener('click', reset);
+
 // ===============FUNCTION'S===============
 
 init()
@@ -50,9 +52,11 @@ init()
 // Отображение начальных статусов
 function init() {
     limitNode.innerText = NO_LIMIT;
-    totalNode.innerText = `0 ${CURRENCY}`
-    statusNode.innerText = STATUS_IN_LIMIT
-    historyNode.innerText = NO_EXPENSE
+    totalNode.innerText = `0 ${CURRENCY}`;
+    statusNode.innerText = STATUS_IN_LIMIT;
+    historyNode.innerText = NO_EXPENSE;
+
+    statusNode.style.color = 'green';
 }
 
 function addLimitBtnHandler(event) {
@@ -77,11 +81,18 @@ function addExpenseBtnHandler(event) {
 
     let currentCategory = getCategory();
 
+    if (!currentCategory || currentCategory === 'Выберите категорию') {
+        return;
+    }
+
     const newExpense = { current: expense, category: currentCategory};
     expenses.push(newExpense);
 
     renderHistory();
+    calculateTotalExpense();
+    clearCategory();
     renderTotal(sum);
+    checkStatus();
 }
 
 // Получние лимита из поля ввода
@@ -127,7 +138,6 @@ function changeInput() {
 function getExpense(expense) {
     expense = parseInt(expenseInputNode.value);
     clearInputExpense();
-    calculateTotalExpense(expense);
 
     console.log(expenses);
 
@@ -143,9 +153,10 @@ function clearInputExpense() {
 function calculateTotalExpense() {
     sum += expense;
 
-      return sum;
+    return sum;
 }
 
+// Отображение статуса "Всего"
 function renderTotal(sum) {
     totalNode.innerText = `${sum} ${CURRENCY}`;
 }
@@ -155,6 +166,12 @@ function getCategory() {
     return categoryNode.value;
 }
 
+// Очистка категории 
+function clearCategory() {
+    categoryNode.value = '';
+}
+
+// Отрисовка истории трат
 function renderHistory() {
     let expensesListHTML = '';
 
@@ -164,4 +181,26 @@ function renderHistory() {
     })
 
     historyNode.innerHTML = `<ul>${expensesListHTML}</ul>`;
+}
+
+// Сброс списка трат
+function reset() {
+    totalNode.innerText = `0 ${CURRENCY}`;
+    historyNode.innerHTML = NO_EXPENSE;
+    expenses.length = [];
+    sum = 0;
+    expense = 0;
+    statusNode.innerText = STATUS_IN_LIMIT;
+    statusNode.style.color = 'green';
+}
+
+// Проверка статуса 
+function checkStatus() {
+    if (limit < sum) {
+        statusNode.innerText = `${STATUS_OUT_OF_LIMIT} (${limit - sum})`;
+        statusNode.style.color = 'red';
+    } if (limit >= sum) {
+        statusNode.innerText = STATUS_IN_LIMIT;
+        statusNode.style.color = 'green';
+    }
 }
