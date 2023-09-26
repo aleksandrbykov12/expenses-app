@@ -69,6 +69,7 @@ function addLimitBtnHandler(event) {
 
     renderLimit();
     changeInput();
+    checkStatus();
 }
 
 function addExpenseBtnHandler(event) {
