@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Учет расходов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <section class="expenses">
+      <h1 class="title">Учет расходов</h1>
+      <form id="limitForm" action="" class="expenses__form-limit">
+        <input
+          id="inputLimit"
+          type="number"
+          class="expenses__input-limit"
+          placeholder="Укажите лимит"
+        />
+        <button id="addLimitBtn" class="btn expenses__add-limit"></button>
+      </form>
+      <select
+        name=""
+        id="category"
+        class="expenses__category expenses__category-inactive"
+      >
+        <option value="">Выберите категорию</option>
+        <option value="Кафе и рестораны">Кафе и рестораны</option>
+        <option value="Транспорт">Транспорт</option>
+        <option value="Аптека">Аптека</option>
+        <option value="Развлечения">Развлечения</option>
+      </select>
+      <form id="expenseForm" action="" class="expenses__form-epxense">
+        <input
+          id="expenseInput"
+          type="number"
+          class="expenses__input-expense"
+          placeholder="Введите сумму"
+        />
+        <button id="addExpenseBtn" class="btn expenses__add-btn"></button>
+        <button id="resetExpenseBtn" class="btn expenses__reset-btn"></button>
+      </form>
+
+      <div class="expenses__info">
+        <button id="changeLimitBtn" class="change-limit-btn"></button>
+        <p class="expenses__limit">Лимит: <span id="limit"></span></p>
+        <p class="expenses__total">Всего: <span id="total"></span></p>
+        <p class="expenses__status">Статус: <span id="status"></span></p>
+      </div>
+
+      <div class="expenses__history">
+        <p class="expenses__history-text">Траты:</p>
+        <div id="history" class="expenses__history-list"></div>
+      </div>
+    </section>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+body {
+    font-family: 'Comfortaa';
+    background: #333;
+    color: rgb(200, 188, 188);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+input,
+select {
+    padding: 0 10px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.expenses {
+    margin: 100px auto;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.expenses__input-limit,
+.expenses__input-expense {
+    width: 100%;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+}
+
+.btn {
+    padding: 0 10px;
+    height: 50px;
+    width: 45px;
+    font-size: 30px;
+    border-radius: 0 10px 10px 0;
+    border: none;
+    text-align: center;
+}
+
+.expenses__add-limit {
+    background: #fff;
+    background-image: url(../resources/buttons/limit-add-icon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.expenses__reset-btn {
+    background: url(../resources/buttons/reset-icon.png) #fff no-repeat center;
+}
+
+.expenses__add-btn {
+    background: url(../resources/buttons/add-icon.png) #fff no-repeat center;
+    border-radius: 0;
+}
+
+.expenses__info,
+.expenses__history {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    border: 1px solid #c8bcbc;
+    border-radius: 10px;
+}
+
+.expenses__info {
+    position: relative;
+}
+
+.change-limit-btn {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: 10px;
+    top: 10px;
+    background: url(../resources/buttons/edit-icon.png) #fff no-repeat center;
+    background-color: transparent;
+    border: none;
+}
+
+.expenses__category-inactive {
+    display: none;
+}
+
+.expenses__form-limit-inactive {
+    display: none;
+}
+
+.expenses__form-limit {
+
+}
+
+.expenses__form-epxense {
+    visibility: hidden;
+    scale: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.expenses__form-epxense-active {
+    visibility: visible;
+    scale: 1;
+    transition: all 0.5s ease-in-out;
+}
