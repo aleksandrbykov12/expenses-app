@@ -134,3 +134,26 @@ form {
 .validation::placeholder {
     color: red;
 }
+
+header {
+    width: 200px;
+    margin-top: 10px;
+}
+
+.header__wrap {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.header__link {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: url(../resources/links/free-icon-github-733553.png) no-repeat center;
+}
+
+.tg {
+    background: url(../resources/links/free-icon-telegram-logo-87413.png) no-repeat center;
+}
