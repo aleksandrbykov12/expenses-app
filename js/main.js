@@ -35,7 +35,7 @@ let limit;
 let sum = 0;
 let expense;
 
-//===============BUTTON'S===============
+// ===============BUTTON'S===============
 
 addLimitBtnNode.addEventListener('click', addLimitBtnHandler);
 
@@ -54,7 +54,7 @@ initExpenses()
 function init() {
     limit = localStorage.getItem('limit');
 
-    if (limit === null) {
+    if (limit === 0) {
         limitNode.innerText = NO_LIMIT;
     } else {
         renderLimit();
@@ -119,6 +119,7 @@ function addExpenseBtnHandler(event) {
     renderHistory();
     calculateTotalExpense();
     clearCategory();
+    clearInputExpense();
     renderTotal(sum);
     checkStatus();
 }
@@ -173,7 +174,7 @@ function changeInput() {
 // Получение трат от пользователя
 function getExpense(expense) {
     expense = parseInt(expenseInputNode.value);
-    clearInputExpense();
+    // clearInputExpense();
 
     console.log(expenses);
 
