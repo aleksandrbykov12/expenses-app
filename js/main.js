@@ -20,7 +20,6 @@ const categoryNode = document.getElementById('category');
 const limitFormNode = document.getElementById('limitForm');
 const expenseFormNode = document.getElementById('expenseForm');
 
-
 // Information and History
 const limitNode = document.getElementById('limit');
 const totalNode = document.getElementById('total');
@@ -54,7 +53,7 @@ initExpenses()
 function init() {
     limit = localStorage.getItem('limit');
 
-    if (limit === 0) {
+    if (!limit) {
         limitNode.innerText = NO_LIMIT;
     } else {
         renderLimit();
